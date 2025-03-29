@@ -1,15 +1,16 @@
 public class Dog extends Animal{
     private String earShape;
     private String tailShape;
-    public Dog(){
-        super("Mutt","big",50.0);
+    public Dog() {
+        super("Mutt", "big", 50);
     }
 
-    public Dog(String type,double weight) {
-        this(type,weight,"perky","curly");
+    public Dog(String type,double weight){
+        this(type, weight, "perky","curled");
     }
+
     public Dog(String type, double weight, String earShape, String tailShape) {
-        super(type, weight < 15 ? "small" :(weight < 35 ? "medium" : "large"), weight);
+        super(type, weight < 15 ? "small" : weight < 35 ? "medium": "large", weight);
         this.earShape = earShape;
         this.tailShape = tailShape;
     }
@@ -22,39 +23,44 @@ public class Dog extends Animal{
                 "} " + super.toString();
     }
 
-    public void makeNoise(){
-        if(type =="wolf"){
+    public void makeNoise() {
+
+        if (type =="wolf") {
             System.out.print("Ow Wooooo! ");
         }
         bark();
         System.out.println();
     }
 
-    public void move(String speed){
+    @Override
+    public void move(String speed) {
         super.move(speed);
-        //System.out.println("Dogs walk,run and wag their tail");
-        if(speed =="slow"){
+//        System.out.println("Dogs walk, run and wag their tails");
+        if (speed == "slow ") {
             walk();
             wagTail();
         } else {
             run();
             bark();
         }
-        System.out.println( );
+
+        System.out.println();
     }
 
-    private void bark(){
+    private void bark() {
         System.out.print("Woof! ");
     }
 
-    private void run(){
+
+    private void run() {
         System.out.print("Dog running ");
     }
 
-    private void walk(){
+    private void walk() {
         System.out.print("Dog walking ");
     }
-    private void wagTail(){
+
+    private void wagTail() {
         System.out.print("Tail wagging ");
     }
 }
